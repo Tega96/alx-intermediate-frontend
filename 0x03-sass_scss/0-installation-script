@@ -1,0 +1,4 @@
+# Steps to install SASS
+- Create a file in your desktop
+- Ensure node is installed in your computer. If not install node from nodejs.org
+- Open the terminal in the root directory of your folder and type `npm install sass -v 3.7.4`
