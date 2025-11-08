@@ -1,0 +1,115 @@
+/** 
+Terminologies:
+debug - Used in outputting information to the console during compilation for developtment purposes.
+@debug "Hello world"
+@debug $variable_name
+
+Variables - to store values for reuse throughout stylesheet
+$primary-color: #3D3D3D;
+here, $primary-color is the variable and can be used anywhere in the file.
+
+
+Nesting - to write css rules inside parent selectors
+nav { 
+    ul {
+        margin: 0;
+    }
+}
+
+Mixins - Reusable blocks of styles that can accept parameters
+@mixin transform($property) {
+    transform: $property;
+}
+
+Include - to use a mixin in your styles
+.box {
+    include transform(rotate(360deg));
+}
+
+Extend - Share CSS properties from one selector to another
+.error {
+    @extend .message;
+}
+
+Import - Split SCSS into multiple files and import them
+@import 'variables';
+
+Partials - SCSS files meant to be imported (filename starts with underscore)
+_variable.scss
+
+Function - return values for use in properties
+@function calculate-rem($size) {
+    return $size / 16px * 1rem;
+}
+
+Operators - Perform math operations directly in CSS
+.container {
+    width: 100% / 3;
+}
+
+Control Directives - Apply styles conditionally or repeatedly
+@if $theme == dark {
+    background: #000;
+}
+
+Each - loops through lists or maps
+@each $color in red, blue, green {
+    .#{$color} {color: $color;}
+}
+
+For - loops through a range of numbers
+@for $i from 1 through 3 {
+    .item-#{$i} {
+        width: 100px * $i;
+    }
+}
+
+While - loops while condition is true
+$i: 1;
+@while $i < 4 {
+    .item-#{$i} {
+        width: 100px * $i;
+    }
+}
+
+Interpolation - Use variable in selectors and property names
+.#{$class-name} {
+    margin: 0;
+}
+
+Placeholders - Silent classes only used with @extend
+%button-reset {
+    padding: 0;
+    border: none;
+}
+
+Use - load modules and make functions/mixins available
+@use 'colors';
+
+Forward - make modules available when your modules is loaded
+@forward 'buttons';
+
+At-Root - nest selector at root level instead of parent
+.parent {
+    @at-root .child {
+        color: red;
+    }
+}
+
+Content - pass content blocks into mixins
+@mixin media-query {
+    @media screen {
+        screen {
+            @content;
+        }
+    }
+}
+
+
+Installation
+npm install -g sass
+
+Tools for compiling:
+Command line: sass input.scss output.css
+Watching files: sass --watch input.scss:output.scss
+*/
