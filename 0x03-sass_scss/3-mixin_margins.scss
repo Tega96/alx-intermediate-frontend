@@ -1,0 +1,18 @@
+/**
+Write a scss file that assigns:
+  - Margin left and right at 10px to body tags
+  - Margin left and right at 15px to div tags
+  - you must use mixin
+*/
+
+@mixin length($length: 10px) {
+    margin-left: $length;
+    margin-right: $length;
+}
+
+body {
+    @include length
+}
+div {
+    @include length(15px)
+}
